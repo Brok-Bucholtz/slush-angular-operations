@@ -1,0 +1,33 @@
+{
+  "name": "angular-operations",
+  "version": "1.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Brok-Bucholtz/AppEngineRESTBoilerplate.git"
+  },
+  "author": "Brok Bucholtz",
+  "engines": {
+    "node": "0.12.x"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "istanbul": "^0.3.18",
+    "protractor": "^2.1.0",
+    "jasmine-core": "^2.3.4",
+    "phantomjs": "^1.9.18",
+    "karma": "^0.13.9",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "jasmine-istanbul-phantom": "^1.1.1",
+
+    "gulp": "^3.9.0",
+    "gulp-angular-protractor": "^0.0.2",
+    "gulp-jscs": "^2.0.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-karma": "^0.0.4",
+    "gulp-live-server": "^0.0.24",
+    "gulp-util": "^3.0.6"
+  },
+  "license": "Apache-2.0"
+}
