@@ -28,14 +28,14 @@ var standardExecCallBack = function(error, stdout, stderr) {
 };
 
 var coverageDirectory = './tmp/coverage/';
-var bowerDirectory = '../tmp/bower_components/';
+var bowerDirectory = './tmp/bower_components/';
 var jipDirectory = './tmp/jip/';
 
-//TODO: User Determined Directories
-var angularDirectory = '../app/';
-var libDirectory = '../app/assets/js/';
-var unitTestDirectory = '../app/';
-var e2eTestDirectory = './test/e2e-tests/';
+// User Determined Directories
+var angularDirectory = '<%= angularDirectory %>';
+var libDirectory = '<%= libDirectory %>';
+var unitTestDirectory = '<%= unitTestDirectory %>';
+var e2eTestDirectory = '<%= e2eTestDirectory %>';
 var testServerPort = 9999;
 
 var angularFiles = [angularDirectory + '**/*.js'];
