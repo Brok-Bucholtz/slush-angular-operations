@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Client</title>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+        <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-csp.css">
+        <link rel="stylesheet" href="/css/global.css">
+        <base href="/">
+    </head>
+    <body ng-app="client.app">
+        <div class="container">
+            <div ng-controller="NavigationCtrl" ng-include="viewUrl"></div>
+            <div ui-view class="active-page"></div>
+        </div>
+        <script src="/js/vendor_concat.js"></script>
+
+        <script src="/client/shared/oauth/oauth.service.js"></script>
+        <script src="/client/shared/user/user.resource.js"></script>
+        <script src="/client/shared/user/user.service.js"></script>
+        <script src="/client/shared/car/car.resource.js"></script>
+        <script src="/client/shared/car/car.service.js"></script>
+
+        <script src="/client/components/car/car.controller.js"></script>
+        <script src="/client/components/car/car.component.js"></script>
+
+        <script src="/client/components/home/home.controller.js"></script>
+        <script src="/client/components/home/home.component.js"></script>
+
+        <script src="/client/components/chat/chat.controller.js"></script>
+        <script src="/client/components/chat/chat.component.js"></script>
+
+        <script src="/client/components/login/login.controller.js"></script>
+        <script src="/client/components/login/login.component.js"></script>
+
+        <script src="/client/components/navigation/navigation.controller.js"></script>
+        <script src="/client/components/navigation/navigation.component.js"></script>
+
+        <script src="/client/client.app.js"></script>
+    </body>
+</html>

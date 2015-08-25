@@ -1,0 +1,13 @@
+<nav>
+    <div class="nav-wrapper">
+        <ul class="left">
+            <li ng-class="{ active: isCurrentState('home') || isCurrentState('')}"><a ui-sref="home">Home</a></li>
+            <li ng-class="{ active: isCurrentState('car')}"><a ui-sref="car">Cars</a></li>
+            <li ng-class="{ active: isCurrentState('chat')}"><a ui-sref="chat">Chat</a></li>
+        </ul>
+        <ul class="right">
+            <li ng-show="User.isLoggedIn()"><a ng-click="logout()" href="#">Logout</a></li>
+            <li ng-show="!User.isLoggedIn()"><a ui-sref="login">Login</a></li>
+        </ul>
+    </div>
+</nav>

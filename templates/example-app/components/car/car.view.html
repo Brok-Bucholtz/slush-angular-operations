@@ -1,0 +1,44 @@
+<form ng-submit="createCar()">
+    <h4>Add Car</h4>
+    <div class="row">
+        <div class="input-field col s3">
+            <input placeholder="Car Description" id="car_description" ng-model="carDescription" ng-disabled="isCreatingCar" type="text" class="validate">
+        </div>
+        <div class="col s1">
+            <div ng-show="isCreatingCar">
+                <div class="preloader-wrapper large active">
+                    <div class="spinner-layer spinner-red-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div ng-show="!cars">
+    <div class="progress">
+        <div class="indeterminate"></div>
+    </div>
+</div>
+<div ng-show="cars && util.isEmpty(cars)">
+    <h5>No Cars</h5>
+</div>
+<ul id="carData" ng-show="cars && !util.isEmpty(cars)" class="collection">
+    <li ng-repeat="(id, car) in cars" class="collection-item avatar">
+        <span class="title"><h5>{{car.description}}</h5></span>
+        <p>
+            {{car.id}}<br>
+            {{car.bought | date : "mediumDate"}}<br>
+            <input type="checkbox" id="{{car.id}}-isSold" ng-model="car.isSold" ng-change="updateCar(car)" class="filled-in" />
+            <label for="{{car.id}}-isSold">Sold</label>
+        </p>
+        <a ng-click="deleteCar(car)" class="secondary-content waves-effect waves-light btn"><i class="material-icons">delete</i></a>
+    </li>
+</ul>
