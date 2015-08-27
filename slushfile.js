@@ -3,6 +3,7 @@
 var inquirer = require('inquirer');
 var path = require('path');
 var extend = require('util')._extend;
+var Promise = require('promise');
 
 var gulp = require('gulp');
 var conflict = require('gulp-conflict');
@@ -38,25 +39,42 @@ var resolveParameterPaths = function(parameters, baseDirectory) {
   return returnParameters;
 };
 
+var generateAngularOperations = function(parameters) {
+  return new Promise(function(resolve, reject) {
+    var baseDirectory =
+      Array.apply(
+        null,
+        Array(getNumberOfLevelsInPath(parameters.operationsFolder)))
+      .map(String.prototype.valueOf, '../')
+      .join('');
+
+    parameters = resolveParameterPaths(parameters, baseDirectory);
+
+    gulp.src(__dirname + '/templates/angular-operations/**')
+      .pipe(template(parameters))
+      .pipe(conflict(parameters.operationsFolder))
+      .pipe(gulp.dest(parameters.operationsFolder))
+      .on('end', function () {
+        gulp.src([parameters.operationsFolder + 'package.json'])
+          .pipe(install())
+          .on('end', resolve)
+          .on('error', reject);
+      })
+      .on('error', reject);
+  })};
+
+var generateExampleApp = function(parameters) {
+  gulp.src(__dirname + '/templates/example-app/**')
+    .pipe(gulp.dest('./example-app/'))
+};
+
 var generate = function(parameters, done) {
-  var baseDirectory =
-    Array.apply(
-      null,
-      Array(getNumberOfLevelsInPath(parameters.operationsFolder)))
-    .map(String.prototype.valueOf, '../')
-     .join('');
-
-  parameters = resolveParameterPaths(parameters, baseDirectory);
-
-  gulp.src(__dirname + '/templates/angular-operations/**')
-    .pipe(template(parameters))
-    .pipe(conflict(parameters.operationsFolder))
-    .pipe(gulp.dest(parameters.operationsFolder))
-    .on('end', function() {
-      gulp.src([parameters.operationsFolder + 'package.json'])
-        .pipe(install())
-        .on('end', done);
-    });
+  generateAngularOperations(parameters)
+    .then(function() {
+        if(parameters.exampleApp) {return generateExampleApp(parameters);}
+        else return Promise.resolve();
+    })
+    .then(done);
 };
 
 gulp.task('no-prompt', function(done) {

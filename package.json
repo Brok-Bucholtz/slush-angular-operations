@@ -41,6 +41,7 @@
   "dependencies": {
     "inquirer": "^0.9.0",
     "path": "^0.11.14",
+    "promise": "^7.0.4",
 
     "gulp": "^3.9.0",
     "gulp-conflict": "^0.4.0",

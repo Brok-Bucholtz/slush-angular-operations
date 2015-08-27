@@ -31,7 +31,7 @@ var coverageDirectory = './tmp/coverage/';
 var bowerDirectory = './tmp/bower_components/';
 var jipDirectory = './tmp/jip/';
 
-// User Determined Directories
+// User Determined variables
 var angularDirectory = '<%= angularDirectory %>';
 var libDirectory = '<%= libDirectory %>';
 var unitTestDirectory = '<%= unitTestDirectory %>';
