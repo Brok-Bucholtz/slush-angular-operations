@@ -1,0 +1,22 @@
+{
+  "name": "slush-angular-operations",
+  "version": "1.0.0",
+  "description": "A slush generator for AngularJS Unit Test, E2E Test, Unit Test Coverage, Lint and Style",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Brok-Bucholtz/slush-angular-operations.git"
+  },
+  "engines": {
+    "node": "0.12.x"
+  },
+  "devDependencies": {
+    "del": "^1.2.1",
+    "rewire": "^2.3.4",
+    "run-sequence": "^1.1.2",
+
+    "gulp": "^3.9.0",
+    "gulp-jasmine": "^2.0.1"
+  },
+  "license": "Apache-2.0"
+}

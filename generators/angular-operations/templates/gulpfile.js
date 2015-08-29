@@ -39,7 +39,7 @@ var e2eTestDirectory = '<%= e2eTestDirectory %>';
 var testServerPort = 9999;
 
 var angularFiles = [angularDirectory + '**/*.js'];
-var bowerLibFiles = [bowerDirectory + 'angular-mocks/angular-mocks.js'];
+var bowerLibFiles = [bowerDirectory + 'angular-mocks/angular-mocks.js'];//ToDo: check if
 var libFiles = [libDirectory + '**/*.js'];
 var unitTestFiles = [unitTestDirectory + '**/*.spec.js'];
 var e2eTestFiles = [e2eTestDirectory + '**/*.e2e.js'];
