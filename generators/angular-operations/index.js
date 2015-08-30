@@ -46,9 +46,9 @@ exports.generate = function(parameters) {
       .pipe(gulp.dest(parameters.operationsFolder))
       .on('end', function () {
         gulp.src([parameters.operationsFolder + 'package.json'])
-            .pipe(install())
-            .on('end', resolve)
-            .on('error', reject);
+          .pipe(install())
+          .on('end', resolve)
+          .on('error', reject);
       })
       .on('error', reject);
   });
