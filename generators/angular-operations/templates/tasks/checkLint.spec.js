@@ -1,14 +1,37 @@
-'user strict';
+'use strict';
 
-var gulp = require('gulp');
-var stream = require('stream');
+var gutil = require('gulp-util');
+var Stream = require('stream');
 
 describe('check-lint task', function() {
   var task;
-  var testStream;
+  var testFiles;
+
+  beforeAll(function() {
+    spyOn(console, 'log');
+  });
 
   beforeEach(function() {
     task = require('./checkLint.js');
-    testStream = new stream.Duplex;
+    testFiles = Stream.Readable({objectMode: true});
+  });
+
+  it('should error on suspicious language usage', function(done) {
+    testFiles._read = function() {
+      this.push(new gutil.File({
+        cwd: '/',
+        base: '/test/',
+        path: '/test/file.js',
+        contents: new Buffer('var test = 123')
+      }));
+      this.push(null);
+    };
+
+    task(testFiles, {})()
+        .on('error', function(error) {
+          expect(console.log).toHaveBeenCalled();
+          expect(error).not.toBeNull();
+          done();
+        });
   });
 });

@@ -4,7 +4,7 @@
   "description": "A slush generator for AngularJS Unit Test, E2E Test, Unit Test Coverage, Lint and Style",
   "main": "slushfile.js",
   "scripts": {
-    "postinstall": "cd operations && npm install",
+    "postinstall": "npm --prefix ./operations install ./operations && npm --prefix ./generators/angular-operations/templates install ./generators/angular-operations/templates",
     "test": "gulp test --gulpfile ./operations/gulpfile.js"
   },
   "repository": {
